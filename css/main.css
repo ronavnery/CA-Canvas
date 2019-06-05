@@ -3,11 +3,25 @@ body {
     margin-top: 50px;
 }
 
-.controls {
-    background-color: grey;
-    width: 20px;
-    position: fixed;
-    top:0;
+ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin-right: 10px;
+}
+
+.options-bar {
+    background-color: #f6f6f6;
+    width: 250px;
+    margin: 0 auto;
+    position: relative;
+    top: -49px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
 }
 
 canvas {

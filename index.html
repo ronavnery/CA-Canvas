@@ -10,9 +10,21 @@
 </head>
 
 <body onload="onInit()">
-    <div class="controls">
-
+    
+    <div class="options-bar">
+        <ul>
+            <li><input type="color" name="favcolor" value="#ff0000"></li>
+            <li><select name="shape">
+                    <option value="rect">Rect</option>
+                    <option value="circle">Circle</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select></li>
+            <li>Save</li>
+            <li>Clear</li>
+        </ul>
     </div>
+
     <section class="container flex justify-center align-center">
         <canvas onmousedown="draw(event)" id="our-canvas" width="500" height="500">
             Update your browser to enjoy canvas!
