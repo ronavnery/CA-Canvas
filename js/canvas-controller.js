@@ -5,9 +5,21 @@ let gIsMouseDown = false;
 let gIsBreakOn = false;;
 
 
+
 function onInit() {
     defineCanvas();
 }
+
+function onSubmit(ev) {
+    ev.preventDefault();
+    let userColorPick = document.querySelector('.user-color').value;
+    let userShapePick = document.querySelector('.user-shape').value;
+    let userSettings = getUserSettings();
+    userSettings.userColor = userColorPick;
+    userSettings.userShape = userShapePick;
+    setUserSettings();
+}
+
 
 function defineCanvas() {
     canvas = document.querySelector('#our-canvas');
@@ -27,8 +39,9 @@ function onMouseDown() {
 
 function onMouseMove(ev) {
     if (gIsBreakOn) return;
+    let timestamp = 0;
+    let mY = 0;
     let speed = getMouseTimeSpeedDis(ev);
-
     if (gIsMouseDown) {
         const { offsetX, offsetY } = ev;
         let shapeWidth = speed / 10;
@@ -36,10 +49,10 @@ function onMouseMove(ev) {
         if (speed < 250) {
             shapeWidth = getRandomIntInclusive(30, 40);
             shapeHeight = getRandomIntInclusive(30, 40);
-        }
+        } 
         drawRect(offsetX, offsetY, shapeWidth, shapeHeight);
         gIsBreakOn = true;
-        setTimeout(function () { gIsBreakOn = false }, 100)
+        setTimeout(function () { gIsBreakOn = false }, 30)
     }
 }
 
@@ -58,10 +71,10 @@ function draw(ev) {
 }
 
 
-function drawRect(x, y, shapeWidth = 150, shapeHeight = 150) {
+function drawRect(x, y, shapeWidth, shapeHeight) {
     ctx.beginPath();
     ctx.rect(x, y, shapeWidth, shapeHeight)
-    ctx.fillStyle = 'white'
+    ctx.fillStyle = getCurrColor();
     ctx.fillRect(x, y, shapeWidth, shapeHeight)
     ctx.stroke()
     ctx.closePath();

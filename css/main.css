@@ -1,6 +1,5 @@
 body {
     height: 100%;
-    margin-top: 50px;
 }
 
 ul {
@@ -18,7 +17,6 @@ li {
     width: 250px;
     margin: 0 auto;
     position: relative;
-    top: -49px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 10px;
