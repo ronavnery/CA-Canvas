@@ -4,8 +4,6 @@ let ctx;
 let gIsMouseDown = false;
 let gIsBreakOn = false;;
 
-
-
 function onInit() {
     defineCanvas();
 }
@@ -22,6 +20,12 @@ function onSubmit(ev) {
 
 function onClear() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function downloadImg(elLink, ev) {
+    ev.stopPropagation();
+    const imgContent = canvas.toDataURL('image/jpeg');
+    elLink.href = imgContent;
 }
 
 function defineCanvas() {
@@ -59,7 +63,9 @@ function onMouseMove(ev) {
     }
 }
 
-function onMouseUp() {
+function onMouseUp(event) {
+    event.preventDefault()
+    event.stopPropagation()
     gIsMouseDown = false;
 }
 
@@ -68,7 +74,7 @@ function draw(x, y, width, height) {
     let currColor = getCurrColor();
     let currShape = getCurrShape();
     if (currShape === 'rect') drawRect(x, y, width, height, currColor);
-    // else if (currShape === 'circle') drawCircle(x, y, currColor);
+    else if (currShape === 'circle') drawCircle(x, y, currColor);
 }
 
 
