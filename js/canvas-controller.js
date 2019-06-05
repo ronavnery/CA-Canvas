@@ -49,8 +49,9 @@ function onMouseMove(ev) {
         if (speed < 250) {
             shapeWidth = getRandomIntInclusive(30, 40);
             shapeHeight = getRandomIntInclusive(30, 40);
-        } 
+        }
         drawRect(offsetX, offsetY, shapeWidth, shapeHeight);
+        // drawCircle(offsetX, offsetY)
         gIsBreakOn = true;
         setTimeout(function () { gIsBreakOn = false }, 30)
     }
@@ -77,5 +78,14 @@ function drawRect(x, y, shapeWidth, shapeHeight) {
     ctx.fillStyle = getCurrColor();
     ctx.fillRect(x, y, shapeWidth, shapeHeight)
     ctx.stroke()
+    ctx.closePath();
+}
+
+function drawCircle(offsetX, offsetY) {
+    ctx.beginPath();
+    ctx.arc(offsetX, offsetY, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = getCurrColor();
+    ctx.fill();
+    ctx.stroke();
     ctx.closePath();
 }
