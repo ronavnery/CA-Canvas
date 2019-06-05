@@ -28,6 +28,8 @@ function downloadImg(elLink, ev) {
     elLink.href = imgContent;
 }
 
+
+
 function defineCanvas() {
     canvas = document.querySelector('#our-canvas');
     ctx = canvas.getContext('2d')

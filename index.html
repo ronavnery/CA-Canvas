@@ -10,7 +10,16 @@
 </head>
 
 <body onload="onInit()">
+
+
     <div class="options-bar">
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden" />
+            <button type="submit">Publish</button>
+        </form>
+        <div id="fb-root"></div>
+        <div class="share-container"></div>
+        
         <form onsubmit="onSubmit(event)">
             <ul>
                 <li><input type="color" class="user-color" value="#ff0000"></li>
@@ -24,6 +33,7 @@
                 <li><a href="#" onclick="downloadImg(this, event)" download="my-img.jpg">Download</a></li>
             </ul>
         </form>
+
     </div>
 
     <section class="container flex justify-center align-center">

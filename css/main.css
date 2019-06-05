@@ -8,6 +8,7 @@ ul {
     margin: 0;
     padding: 0;
 }
+
 li {
     margin-right: 10px;
 }
@@ -21,6 +22,21 @@ li {
     border-bottom-right-radius: 5px;
     padding: 10px;
     box-shadow: 0 5px 5px -6px black;
+}
+
+.social-share-btn {
+    background: #4267b2;
+    border: 1px solid #4267b2;
+    color: #fff;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    user-select: none;
+    white-space: nowrap;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 canvas {
