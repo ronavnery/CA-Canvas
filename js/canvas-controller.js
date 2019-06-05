@@ -20,6 +20,9 @@ function onSubmit(ev) {
     setUserSettings();
 }
 
+function onClear() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 
 function defineCanvas() {
     canvas = document.querySelector('#our-canvas');
@@ -50,7 +53,7 @@ function onMouseMove(ev) {
             shapeWidth = getRandomIntInclusive(30, 40);
             shapeHeight = getRandomIntInclusive(30, 40);
         } 
-        drawRect(offsetX, offsetY, shapeWidth, shapeHeight);
+        draw(offsetX, offsetY, shapeWidth, shapeHeight);
         gIsBreakOn = true;
         setTimeout(function () { gIsBreakOn = false }, 30)
     }
@@ -61,20 +64,18 @@ function onMouseUp() {
 }
 
 
-function draw(ev) {
-    console.log(ev);
-    // Do we need this?
-    // ctx.save() 
-    const { offsetX, offsetY } = ev;
-    console.log(offsetX, offsetY);
-    drawRect(offsetX, offsetY);
+function draw(x, y, width, height) {
+    let currColor = getCurrColor();
+    let currShape = getCurrShape();
+    if (currShape === 'rect') drawRect(x, y, width, height, currColor);
+    // else if (currShape === 'circle') drawCircle(x, y, currColor);
 }
 
 
-function drawRect(x, y, shapeWidth, shapeHeight) {
+function drawRect(x, y, shapeWidth, shapeHeight, color) {
     ctx.beginPath();
     ctx.rect(x, y, shapeWidth, shapeHeight)
-    ctx.fillStyle = getCurrColor();
+    ctx.fillStyle = color;
     ctx.fillRect(x, y, shapeWidth, shapeHeight)
     ctx.stroke()
     ctx.closePath();
