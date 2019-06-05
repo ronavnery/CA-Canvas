@@ -11,14 +11,15 @@
 
 <body onload="onInit()">
     <div class="controls">
-        
+
     </div>
     <section class="container flex justify-center align-center">
-        <canvas onclick="draw(event)" id="my-canvas" width="500" height="500">
+        <canvas onmousedown="draw(event)" id="our-canvas" width="500" height="500">
             Update your browser to enjoy canvas!
         </canvas>
     </section>
 
+    <script src="js/canvas-util.js"></script>
     <script src="js/canvas-controller.js"></script>
 </body>
 
