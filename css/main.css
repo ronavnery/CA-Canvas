@@ -13,8 +13,7 @@ li {
 }
 
 .options-bar {
-    background-color: #f6f6f6;
-    width: 250px;
+    width: max-content;
     margin: 0 auto;
     position: relative;
     bottom: 9px;

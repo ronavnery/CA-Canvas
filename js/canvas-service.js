@@ -1,8 +1,8 @@
 'use strict';
 
 let gUserSettings = createSettings();
-let gCurrColor;
-let gCurrShape;
+let gCurrColor = '#ff0000';
+let gCurrShape = 'rect';
 
 function createSettings() {
     return {
