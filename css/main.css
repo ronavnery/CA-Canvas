@@ -17,9 +17,11 @@ li {
     width: 250px;
     margin: 0 auto;
     position: relative;
+    bottom: 9px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 10px;
+    box-shadow: 0 5px 5px -6px black;
 }
 
 canvas {

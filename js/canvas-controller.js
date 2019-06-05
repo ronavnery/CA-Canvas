@@ -52,8 +52,9 @@ function onMouseMove(ev) {
         if (speed < 250) {
             shapeWidth = getRandomIntInclusive(30, 40);
             shapeHeight = getRandomIntInclusive(30, 40);
-        } 
+        }
         draw(offsetX, offsetY, shapeWidth, shapeHeight);
+        if(getCurrShape() === 'line') return;
         gIsBreakOn = true;
         setTimeout(function () { gIsBreakOn = false }, 30)
     }
@@ -68,7 +69,8 @@ function draw(x, y, width, height) {
     let currColor = getCurrColor();
     let currShape = getCurrShape();
     if (currShape === 'rect') drawRect(x, y, width, height, currColor);
-    // else if (currShape === 'circle') drawCircle(x, y, currColor);
+    else if (currShape === 'circle') drawCircle(x, y, currColor);
+    else if (currShape === 'line') drawLine(x, y, currColor);
 }
 
 
@@ -81,11 +83,19 @@ function drawRect(x, y, shapeWidth, shapeHeight, color) {
     ctx.closePath();
 }
 
-function drawCircle(offsetX, offsetY) {
+function drawCircle(offsetX, offsetY, color) {
     ctx.beginPath();
     ctx.arc(offsetX, offsetY, 50, 0, 2 * Math.PI);
-    ctx.fillStyle = getCurrColor();
+    ctx.fillStyle = color;
     ctx.fill();
     ctx.stroke();
+    ctx.closePath();
+}
+
+function drawLine(x, y, color) {
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
     ctx.closePath();
 }
