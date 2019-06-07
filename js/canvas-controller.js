@@ -19,26 +19,26 @@ function onSubmit(ev) {
 }
 
 function onClear() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
 }
 
 function downloadImg(elLink, ev) {
     ev.stopPropagation();
-    const imgContent = canvas.toDataURL('image/jpeg');
+    const imgContent = gCanvas.toDataURL('image/jpeg');
     elLink.href = imgContent;
 }
 
 
 
 function defineCanvas() {
-    canvas = document.querySelector('#our-canvas');
-    ctx = canvas.getContext('2d')
-    canvas.width = window.innerWidth - 100
-    canvas.height = window.innerHeight - 100
+    gCanvas = document.querySelector('#our-canvas');
+    gCtx = gCanvas.getContext('2d')
+    gCanvas.width = window.innerWidth - 100
+    gCanvas.height = window.innerHeight - 100
 
-    canvas.addEventListener('mousedown', onMouseDown)
-    canvas.addEventListener('mousemove', onMouseMove, event)
-    canvas.addEventListener('mouseup', onMouseUp)
+    gCanvas.addEventListener('mousedown', onMouseDown)
+    gCanvas.addEventListener('mousemove', onMouseMove, event)
+    gCanvas.addEventListener('mouseup', onMouseUp)
 }
 
 function onMouseDown() {
@@ -83,27 +83,27 @@ function draw(x, y, width, height) {
 
 
 function drawRect(x, y, shapeWidth, shapeHeight, color) {
-    ctx.beginPath();
-    ctx.rect(x, y, shapeWidth, shapeHeight)
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, shapeWidth, shapeHeight)
-    ctx.stroke()
-    ctx.closePath();
+    gCtx.beginPath();
+    gCtx.rect(x, y, shapeWidth, shapeHeight)
+    gCtx.fillStyle = color;
+    gCtx.fillRect(x, y, shapeWidth, shapeHeight)
+    gCtx.stroke()
+    gCtx.closePath();
 }
 
 function drawCircle(offsetX, offsetY, color) {
-    ctx.beginPath();
-    ctx.arc(offsetX, offsetY, 50, 0, 2 * Math.PI);
-    ctx.fillStyle = color;
-    ctx.fill();
-    ctx.stroke();
-    ctx.closePath();
+    gCtx.beginPath();
+    gCtx.arc(offsetX, offsetY, 50, 0, 2 * Math.PI);
+    gCtx.fillStyle = color;
+    gCtx.fill();
+    gCtx.stroke();
+    gCtx.closePath();
 }
 
 function drawLine(x, y, color) {
-    ctx.beginPath();
-    ctx.arc(x, y, 5, 0, 2 * Math.PI);
-    ctx.fillStyle = color;
-    ctx.fill();
-    ctx.closePath();
+    gCtx.beginPath();
+    gCtx.arc(x, y, 5, 0, 2 * Math.PI);
+    gCtx.fillStyle = color;
+    gCtx.fill();
+    gCtx.closePath();
 }
